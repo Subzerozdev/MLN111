@@ -310,6 +310,9 @@
                 </button>
                 <button class="btn-secondary" onclick="showPage('game')" id="btn-game"> 🎮 Board Game </button>
                 <button class="btn-secondary" onclick="showPage('solution')" id="btn-solution"> 💡 Giải Pháp </button>
+                <button class="btn-secondary" id="btn-ai-usage" onclick="showPage('ai-usage')" style="color: #667eea;">
+                    🤖 AI Usage
+                </button>
             </div>
         </div>
 
@@ -597,7 +600,8 @@
                             🎲 BẢN ĐỒ PHÁT TRIỂN CÁ NHÂN
                         </h1>
                         <p class="text-2xl mb-8 max-w-4xl text-center font-light">
-                            Chọn 3 ô để đối mặt với những **Ngã Rẽ Định Mệnh** và xem Triết học đánh giá quyết định của
+                            Chọn 3 ô để đối mặt với những <strong>Ngã Rẽ Định Mệnh</strong> và xem Triết học đánh giá
+                            quyết định của
                             bạn thế nào!
                         </p>
 
@@ -655,10 +659,6 @@
                             </div>
                         </div>
 
-                        <p class="text-2xl mt-12 font-semibold">
-                            Sử dụng triết học để làm chủ sự phát triển của bản thân.
-                        </p>
-
                     </div>
                 </section>
 
@@ -705,6 +705,95 @@
 
                     </div>
                 </section>
+            </div>
+
+            <!-- TRANG AI USAGE -->
+            <div id="page-ai-usage" class="page-content">
+                <h1 style="text-align: center; color: #667eea; margin-bottom: 2rem; font-size: 2.5rem;">
+                    🤖 Sử Dụng AI
+                </h1>
+
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+
+                    <!-- Google Gemini -->
+                    <div class="card" style="padding: 1.5rem; border-left: 5px solid #4285f4;">
+                        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                            <span style="font-size: 2.5rem; margin-right: 1rem;">🔍</span>
+                            <h3 style="color: #4285f4; margin: 0;">Google Gemini</h3>
+                        </div>
+                        <p style="color: #666; margin-bottom: 1rem;"><strong>Mục đích:</strong> Trợ giúp đóng góp nội
+                            dung, ý tưởng và thiết kế giao diện</p>
+                        <p style="color: #666; margin-bottom: 1rem;"><strong>Prompt chính:</strong> Tạo cấu trúc nội
+                            dung về quy luật biện chứng, gợi ý thiết kế UI</p>
+                        <p style="color: #666;"><strong>Phần chỉnh sửa:</strong> Toàn bộ nội dung được kiểm chứng lại
+                            với giáo trình LLCT chính thống</p>
+                    </div>
+
+                    <!-- Chat GPT -->
+                    <div class="card" style="padding: 1.5rem; border-left: 5px solid #00a67e;">
+                        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                            <span style="font-size: 2.5rem; margin-right: 1rem;">🎥</span>
+                            <h3 style="color: #00a67e; margin: 0;">Chat GPT</h3>
+                        </div>
+                        <p style="color: #666; margin-bottom: 1rem;"><strong>Mục đích:</strong> Trợ giúp tạo video minh
+                            họa</p>
+                        <p style="color: #666; margin-bottom: 1rem;"><strong>Prompt chính:</strong> Tạo video dựa trên
+                            kịch bản cung cấp </p>
+                        <p style="color: #666;"><strong>Phần chỉnh sửa:</strong> Kịch bản được biên tập, do sinh viên
+                            thực hiện</p>
+                    </div>
+
+                    <!-- Canva AI -->
+                    <div class="card" style="padding: 1.5rem; border-left: 5px solid #5b4df5;">
+                        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                            <span style="font-size: 2.5rem; margin-right: 1rem;">🎨</span>
+                            <h3 style="color: #5b4df5; margin: 0;">Canva AI</h3>
+                        </div>
+                        <p style="color: #666; margin-bottom: 1rem;"><strong>Mục đích:</strong> Trợ giúp thiết kế giao
+                            diện, gameboard</p>
+                        <p style="color: #666; margin-bottom: 1rem;"><strong>Prompt chính:</strong> Tạo layout trực quan
+                            cho board game triết học</p>
+                        <p style="color: #666;"><strong>Phần chỉnh sửa:</strong> Các thiết kế được tùy chỉnh về màu sắc,
+                            font chữ theo yêu cầu UX/UI</p>
+                    </div>
+
+                </div>
+
+                <div class="card" style="padding: 2rem; background: linear-gradient(135deg, #dbeafe 0%, #e0f2fe 100%);">
+                    <h2 style="color: #0c4a6e; margin-bottom: 1.5rem; font-size: 1.8rem;">📊 Phân Chia Công Việc</h2>
+                    <table style="width: 100%; border-collapse: collapse; color: #333;">
+                        <tr style="background: #0c4a6e; color: white;">
+                            <th style="padding: 1rem; text-align: left; border: 1px solid #0369a1;">Công Việc</th>
+                            <th style="padding: 1rem; text-align: left; border: 1px solid #0369a1;">AI Output</th>
+                            <th style="padding: 1rem; text-align: left; border: 1px solid #0369a1;">Sinh Viên Chỉnh Sửa
+                            </th>
+                        </tr>
+                        <tr style="background: #f0f9ff;">
+                            <td style="padding: 1rem; border: 1px solid #0369a1;"><strong>Nội dung LLCT</strong></td>
+                            <td style="padding: 1rem; border: 1px solid #0369a1;">Tạo draft ban đầu</td>
+                            <td style="padding: 1rem; border: 1px solid #0369a1;">✅ Kiểm chứng, đối chiếu giáo trình
+                            </td>
+                        </tr>
+                        <tr style="background: white;">
+                            <td style="padding: 1rem; border: 1px solid #0369a1;"><strong>Thiết kế UI/UX</strong></td>
+                            <td style="padding: 1rem; border: 1px solid #0369a1;">Gợi ý layout, màu sắc</td>
+                            <td style="padding: 1rem; border: 1px solid #0369a1;">✅ Code HTML/CSS, tối ưu hóa</td>
+                        </tr>
+                        <tr style="background: #f0f9ff;">
+                            <td style="padding: 1rem; border: 1px solid #0369a1;"><strong>Kịch bản video</strong></td>
+                            <td style="padding: 1rem; border: 1px solid #0369a1;">Video theo kịch bản</td>
+                            <td style="padding: 1rem; border: 1px solid #0369a1;">✅ Biên tập kịch bản
+                            </td>
+                        </tr>
+                        <tr style="background: white;">
+                            <td style="padding: 1rem; border: 1px solid #0369a1;"><strong>Gameboard & Quiz</strong></td>
+                            <td style="padding: 1rem; border: 1px solid #0369a1;">Cấu trúc game logic</td>
+                            <td style="padding: 1rem; border: 1px solid #0369a1;">✅ Thêm, sắp xếp câu hỏi, nội dung</td>
+                        </tr>
+                    </table>
+                </div>
+
             </div>
         </main>
 
