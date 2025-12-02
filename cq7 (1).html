@@ -1,0 +1,992 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KHỦNG HOẢNG HIỆN SINH: Lạc Lối Trong Xã Hội Số?</title>
+    <script src="/_sdk/element_sdk.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .quote-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 1.5rem;
+            border-radius: 12px;
+            color: white;
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .law-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 2.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.875rem 2rem;
+            border-radius: 50px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            padding: 0.875rem 2rem;
+            border-radius: 50px;
+            border: 2px solid #667eea;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .interactive-quiz {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 2rem;
+            border-radius: 16px;
+            color: white;
+            margin: 2rem 0;
+        }
+
+        .quiz-option {
+            background: white;
+            color: #333;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-option:hover {
+            background: #f0f0f0;
+            transform: translateX(10px);
+        }
+
+        .quiz-option.correct {
+            background: #4caf50;
+            color: white;
+        }
+
+        .quiz-option.incorrect {
+            background: #f44336;
+            color: white;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #667eea;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #667eea;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #667eea;
+        }
+
+        .ai-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .board-game-container {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            color: white;
+            margin: 2rem 0;
+        }
+
+        .game-board {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .game-tile {
+            border: 2px solid #9ca3af;
+            background-color: #374151;
+            color: white;
+        }
+
+        .game-tile:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .game-tile.revealed {
+            background-color: #4b5563 !important;
+            border-color: #3b82f6;
+            color: white;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        }
+
+        .game-tile.penalty {
+            background: #ff5252;
+            color: white;
+        }
+
+        /* Ô tích cực (Bonus/Positive) */
+        .game-tile.bonus {
+            background-color: #34d399 !important;
+            /* Xanh lá nhạt hơn */
+            border-color: #10b981;
+        }
+
+        /* Ô tiêu cực (Penalty/Negative) */
+        .game-tile.penalty {
+            background-color: #fca5a5 !important;
+            /* Đỏ nhạt hơn */
+            border-color: #ef4444;
+        }
+
+        #game-message-area {
+            background-color: #1f2937;
+            /* Nền tối */
+            color: #f3f4f6;
+            /* Chữ sáng */
+            border: 2px solid #4b5563;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .page-content {
+            display: none;
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .game-board {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+    <style>
+        @view-transition {
+            navigation: auto;
+        }
+    </style>
+    <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <div id="app" style="width: 100%; min-height: 100vh;">
+        <!-- Header -->
+        <header class="gradient-bg" style="padding: 4rem 2rem; text-align: center; color: white;">
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <div class="fade-in-up">
+                    <h1 id="main-title"
+                        style="font-size: 3rem; font-weight: 700; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">
+                        KHỦNG HOẢNG HIỆN SINH</h1>
+                    <h1 id="main-title"
+                        style="font-size: 3rem; font-weight: 700; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">
+                        Lạc Lối Trong Xã Hội Số?</h1>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <div
+            style="background: white; padding: 1rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100;">
+            <div class="nav-tabs" style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;">
+                <button class="btn-secondary" onclick="showPage('main')" id="btn-main"> 🏠 Trang Chủ </button>
+                <button class="btn-secondary" onclick="showPage('theory')" id="btn-theory"> 📚 Lý Thuyết Chi Tiết
+                </button>
+                <button class="btn-secondary" onclick="showPage('game')" id="btn-game"> 🎮 Board Game </button>
+                <button class="btn-secondary" onclick="showPage('solution')" id="btn-solution"> 💡 Giải Pháp </button>
+            </div>
+        </div>
+
+        <main style="width: 100%; padding: 3rem 1.5rem; max-width: 1200px; margin: 0 auto;">
+            <!-- TRANG CHỦ -->
+            <div id="page-main" class="page-content active">
+                <!-- Mini Game Mở Đầu -->
+                <section class="fade-in-up" style="margin-bottom: 4rem;">
+                    <div class="interactive-quiz">
+                        <h2 style="font-size: 2rem; margin-bottom: 1.5rem; font-weight: 700; text-align: center;">🎯
+                            MINI GAME MỞ ĐẦU: "Bạn đang ở đâu?"</h2>
+                        <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem;">Trả lời 3 câu hỏi để đánh
+                            giá mức độ áp lực hiện tại của bạn</p>
+
+                        <div id="mini-game-container">
+                            <div id="question-1" class="mini-question" style="margin-bottom: 2rem;">
+                                <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem;">1. Bạn dành bao
+                                    nhiêu thời gian mỗi ngày cho mạng xã hội?</p>
+                                <div class="quiz-option" data-question="1" data-score="1"
+                                    onclick="answerMiniGame(this)">
+                                    A. Dưới 2 giờ - Tôi kiểm soát tốt
+                                </div>
+                                <div class="quiz-option" data-question="1" data-score="2"
+                                    onclick="answerMiniGame(this)">
+                                    B. 2-4 giờ - Khá nhiều nhưng chấp nhận được
+                                </div>
+                                <div class="quiz-option" data-question="1" data-score="3"
+                                    onclick="answerMiniGame(this)">
+                                    C. Trên 4 giờ - Tôi nghiện mạng xã hội
+                                </div>
+                            </div>
+
+                            <div id="question-2" class="mini-question" style="margin-bottom: 2rem; display: none;">
+                                <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem;">2. Khi nhìn thấy
+                                    bạn bè thành công trên mạng xã hội, bạn cảm thấy?</p>
+                                <div class="quiz-option" data-question="2" data-score="1"
+                                    onclick="answerMiniGame(this)">
+                                    A. Vui mừng và động lực học hỏi
+                                </div>
+                                <div class="quiz-option" data-question="2" data-score="2"
+                                    onclick="answerMiniGame(this)">
+                                    B. Hơi ghen tỵ nhưng vẫn tích cực
+                                </div>
+                                <div class="quiz-option" data-question="2" data-score="3"
+                                    onclick="answerMiniGame(this)">
+                                    C. Lo lắng và tự ti về bản thân
+                                </div>
+                            </div>
+
+                            <div id="question-3" class="mini-question" style="margin-bottom: 2rem; display: none;">
+                                <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem;">3. Bạn nghĩ AI sẽ
+                                    ảnh hưởng đến tương lai nghề nghiệp của mình như thế nào?</p>
+                                <div class="quiz-option" data-question="3" data-score="1"
+                                    onclick="answerMiniGame(this)">
+                                    A. Là công cụ hỗ trợ tuyệt vời
+                                </div>
+                                <div class="quiz-option" data-question="3" data-score="2"
+                                    onclick="answerMiniGame(this)">
+                                    B. Vừa lo vừa hứng thú
+                                </div>
+                                <div class="quiz-option" data-question="3" data-score="3"
+                                    onclick="answerMiniGame(this)">
+                                    C. Sợ bị thay thế hoàn toàn
+                                </div>
+                            </div>
+
+                            <div id="mini-game-result"
+                                style="margin-top: 2rem; font-size: 1.2rem; text-align: center; font-weight: 600; display: none;">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Đặt vấn đề -->
+                <section class="fade-in-up" style="margin-bottom: 4rem;">
+                    <div class="card" style="padding: 2.5rem;">
+                        <h2 style="color: #667eea; font-size: 2rem; margin-bottom: 1.5rem; font-weight: 700;">🤔 Đặt Vấn
+                            Đề</h2>
+                        <p style="font-size: 1.1rem; line-height: 1.8; color: #444; margin-bottom: 1.5rem;">
+                            Nhiều bạn trẻ Việt Nam hiện nay cảm thấy <strong>mất phương hướng, hoang mang</strong>
+                            trước:
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-8 mb-12 max-w-4xl mx-auto">
+
+                            <div
+                                class="flex flex-col items-center card p-6 w-36 md:w-48 bg-white text-gray-800 shadow-2xl transition duration-500 hover:scale-105">
+                                <div class="text-4xl mb-3">💼</div>
+                                <p class="text-lg font-bold">ÁP LỰC CÔNG VIỆC</p>
+                            </div>
+
+                            <div
+                                class="flex flex-col items-center card p-6 w-36 md:w-48 bg-white text-gray-800 shadow-2xl transition duration-500 hover:scale-105">
+                                <div class="text-4xl mb-3">📱</div>
+                                <p class="text-lg font-bold">MẠNG XÃ HỘI BÙNG NỔ</p>
+                            </div>
+
+                            <div
+                                class="flex flex-col items-center card p-6 w-36 md:w-48 bg-white text-gray-800 shadow-2xl transition duration-500 hover:scale-105">
+                                <div class="text-4xl mb-3">🤖</div>
+                                <p class="text-lg font-bold">KỶ NGUYÊN AI</p>
+                            </div>
+                        </div>
+                        <div class="quote-box">
+                            <strong style="color: white;">Câu hỏi kiến tạo:</strong> Đây chỉ là trạng thái tâm lý cá
+                            nhân, hay là một quy luật tất yếu của xã hội phát triển?
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Video giới thiệu -->
+                <section class="fade-in-up" style="margin-bottom: 4rem;">
+                    <div class="card" style="padding: 2.5rem;">
+                        <h2 style="color: #667eea; font-size: 2rem; margin-bottom: 1.5rem; font-weight: 700;">🎥 Video
+                            Giới Thiệu</h2>
+                        <div class="video-container">
+                            <iframe
+                                src="https://player.cloudinary.com/embed/?cloud_name=djtdg8r8p&public_id=invideo-ai-1080_30s_Tho%C3%A1t_L%E1%BA%A1c_L%E1%BB%91i_Gi%E1%BB%AFa_AI__Ch%C3%ACa_Kh%C3%B3a_B%C3%ACn_2025-12-02_nbieky&profile=cld-default"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen title="Video về Triết học Mác-Lênin"></iframe>
+                        </div>
+                        <p style="margin-top: 1rem; color: #666; font-size: 0.95rem; text-align: center;">
+                            Video minh họa về ứng dụng triết học Mác-Lênin trong đời sống
+                        </p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- TRANG LÝ THUYẾT CHI TIẾT -->
+            <div id="page-theory" class="page-content">
+                <section class="fade-in-up" style="margin-bottom: 4rem;">
+                    <h2
+                        style="color: #667eea; font-size: 2.5rem; margin-bottom: 2rem; font-weight: 700; text-align: center;">
+                        🎓 Ba Quy Luật Cơ Bản của Phép Biện Chứng Duy Vật
+                    </h2>
+
+                    <!-- Quy luật 1: Lượng - Chất -->
+
+                    <div id="slide-luong-chat"
+                        class="p-10 min-h-screen bg-gray-100 flex flex-col justify-center items-center">
+
+                        <h1 class="text-5xl font-extrabold text-yellow-700 mb-10 border-b-4 border-yellow-500 pb-2">
+                            🧪 1. LƯỢNG – CHẤT: KHỦNG HOẢNG LÀ BƯỚC NHẢY
+                        </h1>
+
+                        <div class="max-w-4xl w-full text-center">
+                            <div class="bg-white p-8 rounded-xl shadow-2xl border-2 border-yellow-400 mb-8">
+                                <p class="text-2xl font-semibold text-gray-700 mb-4">CƠ CHẾ PHÁT TRIỂN</p>
+                                <div class="flex items-center justify-center space-x-4 md:space-x-8">
+                                    <span class="text-3xl font-bold text-blue-600">TÍCH LŨY LƯỢNG (Giờ học, Kỹ năng
+                                        AI)</span>
+                                    <span class="text-5xl text-red-500">→</span>
+                                    <span class="text-3xl font-bold text-red-600">ĐIỂM NÚT (Khủng hoảng)</span>
+                                    <span class="text-5xl text-red-500">→</span>
+                                    <span class="text-3xl font-bold text-green-600">BƯỚC NHẢY (Thay đổi Chất)</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-yellow-100 p-6 rounded-xl border border-yellow-300">
+                                <h3 class="text-3xl font-bold text-yellow-800 mb-3">🎯 HÀNH ĐỘNG GIẢI QUYẾT</h3>
+                                <ul class="list-none text-2xl text-gray-700 space-y-3">
+                                    <li><span class="text-4xl mr-3">⏳</span> Khủng hoảng là <strong>TẤT YẾU</strong>.
+                                        Đừng nôn nóng
+                                        muốn thành công ngay.</li>
+                                    <li><span class="text-4xl mr-3">💪</span> Tập trung <strong>TÍCH LŨY LƯỢNG</strong>
+                                        có ý thức (ví
+                                        dụ: Thử 5 công cụ AI mới mỗi tuần).</li>
+                                    <li><span class="text-4xl mr-3">🚀</span> Dũng cảm <strong>BƯỚC NHẢY</strong> (chấp
+                                        nhận thay đổi
+                                        công việc, tư duy).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Quy luật 2: Mâu thuẫn -->
+
+                    <div id="slide-mau-thuan"
+                        class="p-10 min-h-screen bg-gray-800 text-white flex flex-col justify-center items-center">
+
+                        <h1 class="text-5xl font-extrabold text-red-400 mb-10 border-b-4 border-red-500 pb-2">
+                            💥 2. MÂU THUẪN: ĐẤU TRANH LÀ ĐỘNG LỰC
+                        </h1>
+
+                        <div class="max-w-4xl w-full text-center">
+                            <div class="bg-red-900/50 p-6 rounded-xl shadow-2xl border-2 border-red-600 mb-8">
+                                <h3 class="text-3xl font-bold text-red-300 mb-3">💡 VÍ DỤ ĐƠN GIẢN: HỌC TẬP</h3>
+                                <div class="flex items-center justify-between text-2xl font-semibold">
+                                    <span class="text-blue-300">Cần HỌC TẬP (Điểm cao)</span>
+                                    <span class="text-6xl text-yellow-300">↔</span>
+                                    <span class="text-blue-300">Cần GIẢI TRÍ (Nghỉ ngơi)</span>
+                                </div>
+                                <p class="mt-4 text-xl italic text-gray-300">Sự xung đột (Stress, Lo lắng) chính là
+                                    <strong>ĐẤU TRANH</strong>, buộc ta phải <strong>HÀNH ĐỘNG</strong>.
+                                </p>
+                            </div>
+
+                            <div class="bg-white p-6 rounded-xl border border-red-300 text-gray-800">
+                                <h3 class="text-3xl font-bold text-red-800 mb-3">🎯 VẬN DỤNG VÀO KHỦNG HOẢNG</h3>
+                                <ul class="list-none text-2xl text-gray-700 space-y-3">
+                                    <li><span class="text-4xl mr-3">🤯</span> Khủng hoảng = Xung đột giữa <strong>ỔN
+                                            ĐỊNH CŨ</strong>
+                                        và <strong>THỰC TẾ AI</strong>.</li>
+                                    <li><span class="text-4xl mr-3">🔥</span> Nhận diện: <strong>Năng lực hiện
+                                            tại</strong> vs <strong>Yêu
+                                            cầu Kỷ nguyên AI</strong>.</li>
+                                    <li><span class="text-4xl mr-3">➡️</span> Chuyển hóa áp lực thành <strong>ĐỘNG
+                                            LỰC</strong> để tự
+                                        cải thiện.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Quy luật 3: Phủ định của Phủ định -->
+                    <div id="slide-phu-dinh"
+                        class="p-10 min-h-screen bg-green-50 flex flex-col justify-center items-center">
+
+                        <h1 class="text-5xl font-extrabold text-green-700 mb-10 border-b-4 border-green-500 pb-2">
+                            🔄 3. PHỦ ĐỊNH: ĐƯỜNG XOẮN ỐC TIẾN LÊN
+                        </h1>
+
+                        <div class="max-w-4xl w-full text-center">
+                            <div class="bg-white p-8 rounded-xl shadow-2xl border-2 border-green-400 mb-8">
+                                <h3 class="text-3xl font-bold text-green-800 mb-4">VÍ DỤ CON ĐƯỜNG PHÁT TRIỂN NGHỀ
+                                    NGHIỆP</h3>
+                                <div class="flex items-center justify-between text-xl font-semibold">
+
+                                    <div class="flex flex-col items-center">
+                                        <span class="text-6xl mb-2">✍️</span>
+                                        <p class="font-bold">KHẲNG ĐỊNH: Content Writer TRUYỀN THỐNG</p>
+                                        <p class="text-sm italic text-gray-500">Dùng Word thủ công (KẾ THỪA: Tư duy)</p>
+                                    </div>
+
+                                    <span class="text-5xl text-gray-500">→</span>
+
+                                    <div class="flex flex-col items-center">
+                                        <span class="text-6xl mb-2">❌</span>
+                                        <p class="font-bold">PHỦ ĐỊNH 1: Bị AI thay thế tác vụ lặp</p>
+                                        <p class="text-sm italic text-gray-500">Khủng hoảng, vai trò cũ bị bác bỏ</p>
+                                    </div>
+
+                                    <span class="text-5xl text-gray-500">→</span>
+
+                                    <div class="flex flex-col items-center">
+                                        <span class="text-6xl mb-2">🧠🤖</span>
+                                        <p class="font-bold text-blue-600">PHỦ ĐỊNH CỦA PHỦ ĐỊNH: PROMPT ENGINEER</p>
+                                        <p class="text-sm italic text-gray-500">Làm việc ở <strong>TRÌNH ĐỘ CAO
+                                                HƠN</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-green-100 p-6 rounded-xl border border-green-300">
+                                <h3 class="text-3xl font-bold text-green-800 mb-3">🎯 KẾT LUẬN VỀ KHUynh HƯỚNG</h3>
+                                <ul class="list-none text-2xl text-gray-700 space-y-3">
+                                    <li><span class="text-4xl mr-3">♻️</span> Phát triển là <strong>TIẾN LÊN</strong>
+                                        theo Đường xoắn
+                                        ốc.</li>
+                                    <li><span class="text-4xl mr-3">🌱</span> Phải <strong>KẾ THỪA</strong> những giá
+                                        trị
+                                        cốt lõi
+                                        (đạo đức, tư duy).</li>
+                                    <li><span class="text-4xl mr-3">🔝</span> Khủng hoảng là cơ hội để đạt đến
+                                        <strong>TRÌNH
+                                            ĐỘ MỚI</strong>!
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- TRANG BOARD GAME -->
+            <div id="page-game" class="page-content">
+                <section class="fade-in-up">
+                    <div id="slide-game-chot"
+                        class="p-10 min-h-screen gradient-bg text-white flex flex-col justify-center items-center">
+                        <h1 class="text-4xl md:text-5xl font-extrabold mb-4 text-yellow-300">
+                            🎲 BẢN ĐỒ PHÁT TRIỂN CÁ NHÂN
+                        </h1>
+                        <p class="text-2xl mb-8 max-w-4xl text-center font-light">
+                            Chọn 3 ô để đối mặt với những **Ngã Rẽ Định Mệnh** và xem Triết học đánh giá quyết định của
+                            bạn thế nào!
+                        </p>
+
+                        <div class="w-full max-w-6xl">
+                            <div class="flex justify-between items-center mb-6 p-4 bg-white/10 rounded-xl">
+                                <h2 class="text-2xl font-bold">TỔNG ĐIỂM TÍCH LŨY: <span id="game-score"
+                                        class="text-yellow-300">0</span></h2>
+                                <button onclick="resetGame()"
+                                    class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">CHƠI
+                                    LẠI</button>
+                            </div>
+
+                            <div id="game-board" class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8">
+                            </div>
+
+                            <div id="game-message-area" class="w-full bg-white text-gray-800 p-6 rounded-xl shadow-xl">
+                                <p id="game-message" class="text-center text-lg font-semibold">
+                                    Chọn một ô bất kỳ để bắt đầu hành trình.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- TRANG GIẢI PHÁP -->
+            <div id="page-solution" class="page-content">
+                <section class="fade-in-up" style="margin-bottom: 4rem;">
+                    <div id="slide-tong-ket"
+                        class="p-10 min-h-screen gradient-bg text-white flex flex-col justify-center items-center">
+
+                        <h1 class="text-5xl font-extrabold mb-4 border-b-4 border-white/50 pb-2">
+                            ✅ TỔNG KẾT: CÁ NHÂN HAY TẤT YẾU?
+                        </h1>
+
+                        <h2 class="text-3xl font-light mb-12 italic opacity-90">
+                            Khủng hoảng là <strong>TẤT YẾU</strong>, nhưng giải pháp là <strong>CHỦ ĐỘNG</strong>
+                        </h2>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl">
+
+                            <div class="card p-6 bg-white text-gray-800 text-center border-b-4 border-yellow-500">
+                                <div class="text-5xl mb-3 text-yellow-600">💪</div>
+                                <p class="text-xl font-bold">1. LƯỢNG - CHẤT</p>
+                            </div>
+
+                            <div class="card p-6 bg-white text-gray-800 text-center border-b-4 border-red-500">
+                                <div class="text-5xl mb-3 text-red-600">🔥</div>
+                                <p class="text-xl font-bold">2. MÂU THUẪN</p>
+                            </div>
+
+                            <div class="card p-6 bg-white text-gray-800 text-center border-b-4 border-green-500">
+                                <div class="text-5xl mb-3 text-green-600">♻️</div>
+                                <p class="text-xl font-bold">3. PHỦ ĐỊNH</p>
+                            </div>
+                        </div>
+
+                        <p class="text-2xl mt-12 font-semibold">
+                            Sử dụng triết học để làm chủ sự phát triển của bản thân.
+                        </p>
+
+                    </div>
+                </section>
+
+                <!-- Kết luận -->
+                <section class="fade-in-up" style="margin-bottom: 4rem;">
+                    <div id="slide-giai-phap"
+                        class="p-10 min-h-screen gradient-bg text-white flex flex-col justify-center items-center">
+
+                        <h1 class="text-5xl font-extrabold mb-10">
+                            ✨ GIẢI PHÁP CHỐT: 3T
+                        </h1>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl">
+
+                            <div
+                                class="text-center p-8 bg-white/20 rounded-xl backdrop-blur-sm border-2 border-white/50 transition duration-500 hover:scale-105">
+                                <div class="text-7xl mb-4">📚</div>
+                                <h3 class="text-4xl font-extrabold text-yellow-300">TÍCH LŨY</h3>
+                                <p class="text-xl mt-2 font-light">Tích lũy Lượng có ý thức, không ngừng học hỏi kỹ năng
+                                    mới (AI, ngoại ngữ).</p>
+                            </div>
+
+                            <div
+                                class="text-center p-8 bg-white/20 rounded-xl backdrop-blur-sm border-2 border-white/50 transition duration-500 hover:scale-105">
+                                <div class="text-7xl mb-4"> 💪</div>
+                                <h3 class="text-4xl font-extrabold text-red-300">TRỰC DIỆN</h3>
+                                <p class="text-xl mt-2 font-light">Trực diện với mâu thuẫn nội tại (Ổn định vs Thay
+                                    đổi). Biến stress thành ĐỘNG LỰC.</p>
+                            </div>
+
+                            <div
+                                class="text-center p-8 bg-white/20 rounded-xl backdrop-blur-sm border-2 border-white/50 transition duration-500 hover:scale-105">
+                                <div class="text-7xl mb-4">🚀</div>
+                                <h3 class="text-4xl font-extrabold text-green-300">TÁI TẠO</h3>
+                                <p class="text-xl mt-2 font-light">Phủ định phương pháp cũ, <strong>KẾ THỪA </strong>cốt
+                                    lõi để <strong>TÁI
+                                        TẠO</strong> bản thân ở trình độ mới.</p>
+                            </div>
+                        </div>
+
+                        <p class="text-xl mt-12 font-semibold italic">
+                            Phát triển là tự thân, nhưng thành công cần sự <strong>CHỦ ĐỘNG</strong>.
+                        </p>
+
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="gradient-bg" style="width: 100%; padding: 2rem; text-align: center; color: white;">
+            <p style="font-size: 1rem; opacity: 0.9;">
+                © 2024-2025 - Đồ án môn Triết học Mác - Lênin
+            </p>
+            <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem;">
+                Áp dụng AI có trách nhiệm trong học tập và nghiên cứu
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Mini Game variables
+        let miniGameAnswers = [];
+        let currentQuestion = 1;
+
+        function answerMiniGame(element) {
+            const question = parseInt(element.getAttribute('data-question'));
+            const score = parseInt(element.getAttribute('data-score'));
+
+            // Save answer
+            miniGameAnswers[question - 1] = score;
+
+            // Disable all options in this question
+            const allOptions = document.querySelectorAll(`[data-question="${question}"]`);
+            allOptions.forEach(opt => {
+                opt.style.pointerEvents = 'none';
+                opt.style.opacity = '0.6';
+            });
+
+            // Highlight selected answer
+            element.style.background = '#4facfe';
+            element.style.color = 'white';
+            element.style.opacity = '1';
+
+            // Move to next question or show result
+            if (question < 3) {
+                setTimeout(() => {
+                    document.getElementById(`question-${question}`).style.display = 'none';
+                    document.getElementById(`question-${question + 1}`).style.display = 'block';
+                    currentQuestion++;
+                }, 500);
+            } else {
+                setTimeout(() => {
+                    showMiniGameResult();
+                }, 500);
+            }
+        }
+
+        function showMiniGameResult() {
+            const totalScore = miniGameAnswers.reduce((a, b) => a + b, 0);
+            const resultDiv = document.getElementById('mini-game-result');
+
+            document.querySelectorAll('.mini-question').forEach(q => q.style.display = 'none');
+
+            let resultText = '';
+            if (totalScore <= 4) {
+                resultText = '🌟 <strong>Tuyệt vời!</strong> Bạn đang kiểm soát tốt cuộc sống số của mình. Hãy tiếp tục duy trì!';
+            } else if (totalScore <= 6) {
+                resultText = '⚠️ <strong>Cảnh báo!</strong> Bạn đang chịu áp lực nhất định. Hãy tìm hiểu các quy luật biện chứng để vượt qua!';
+            } else {
+                resultText = '🚨 <strong>Khủng hoảng!</strong> Bạn đang trong giai đoạn "ĐIỂM NÚT". Đây là lúc cần chuyển đổi tư duy!';
+            }
+
+            resultDiv.innerHTML = resultText;
+            resultDiv.style.display = 'block';
+        }
+
+        // Page navigation
+        function showPage(pageName) {
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(page => page.classList.remove('active'));
+
+            const buttons = document.querySelectorAll('.btn-secondary');
+            buttons.forEach(btn => {
+                btn.style.background = 'white';
+                btn.style.color = '#667eea';
+            });
+
+            document.getElementById(`page-${pageName}`).classList.add('active');
+            const activeBtn = document.getElementById(`btn-${pageName}`);
+            activeBtn.style.background = '#667eea';
+            activeBtn.style.color = 'white';
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Board Game functionality
+        // =======================================================================
+        // Dữ liệu Game (Giữ nguyên cấu trúc đã chỉnh sửa)
+        // =======================================================================
+        const gameData = [
+            {
+                id: 1, type: 'bonus', points: 4, icon: '🚀',
+                title: 'Cú Đánh Cược Lớn',
+                description: 'Quyết định nghỉ việc 1 tháng để tập trung làm sản phẩm demo (Bước nhảy).',
+                slogan: "Lượng đã tích lũy đủ, hãy dũng cảm chuyển hóa thành Chất mới! (Lượng - Chất)"
+            },
+            {
+                id: 2, type: 'challenge', points: -2, icon: '🚫',
+                title: 'Tìm Kiếm Sự Hoàn Hảo',
+                description: 'Bạn xem 50 video AI nhưng không thực hành vì sợ làm hỏng (Mắc kẹt tại Điểm nút).',
+                slogan: "Lượng không đi đôi với Chất. Chỉ có hành động mới tạo ra Điểm nút. (Lượng - Chất)"
+            },
+            {
+                id: 3, type: 'knowledge', points: 3, icon: '🤝',
+                title: 'Cái Ôm Lạnh Giá',
+                description: 'Bạn đề xuất dùng AI tự động hóa công việc của mình, gây mâu thuẫn với sếp nhưng mở ra hướng phát triển (Đấu tranh).',
+                slogan: "Mâu thuẫn được giải quyết tạo ra ĐỘNG LỰC. Đấu tranh là tự thân. (Mâu thuẫn)"
+            },
+            {
+                id: 4, type: 'challenge', points: -3, icon: '🛑',
+                title: 'Con Đường Dễ Dàng',
+                description: 'Bạn nhận công việc chỉ dùng kỹ năng cũ để tránh áp lực học mới trong thị trường AI (Né tránh Mâu thuẫn).',
+                slogan: "Né tránh Mâu thuẫn Chủ yếu là chấp nhận tụt hậu. (Mâu thuẫn)"
+            },
+            {
+                id: 5, type: 'knowledge', points: 4, icon: '🧠',
+                title: 'Tư Duy Vượt Lên',
+                description: 'Bạn học lại kiến thức nền tảng để làm Prompt Engineer giỏi hơn (Kế thừa).',
+                slogan: "Phủ định Biện chứng luôn Kế thừa cái cũ ở Trình độ cao hơn. (Phủ định)"
+            },
+            {
+                id: 6, type: 'challenge', points: -4, icon: '💣',
+                title: 'Lãng Quên Quá Khứ',
+                description: 'Bạn từ bỏ hoàn toàn chuyên ngành 4 năm để theo đuổi xu hướng mới nhất mà không Kế thừa gì (Phủ định Siêu hình).',
+                slogan: "Phủ định Siêu hình là đi lại từ đầu, bỏ phí thành quả Lượng đã tích lũy. (Phủ định)"
+            },
+            {
+                id: 7, type: 'knowledge', points: 2, icon: '⏱️',
+                title: 'Kỷ Luật Vàng',
+                description: 'Bạn dành 1 giờ/ngày liên tục trong 2 tuần để đọc tài liệu chuyên ngành (Tích lũy Lượng có ý thức).',
+                slogan: "Tích lũy Lượng nhỏ có ý thức sẽ dẫn đến Chất lớn. (Lượng - Chất)"
+            },
+            {
+                id: 8, type: 'challenge', points: 1, icon: '🧘‍♀️',
+                title: 'Hòa Bình Tạm Thời',
+                description: 'Bạn cố gắng duy trì cân bằng Sống/Làm mà không giải quyết gốc rễ mâu thuẫn nội tại.',
+                slogan: "Sự Thống nhất kéo dài mà không có Đấu tranh sẽ dẫn đến Dậm chân tại chỗ. (Mâu thuẫn)"
+            },
+            {
+                id: 9, type: 'knowledge', points: 3, icon: '🔎',
+                title: 'Cái Giá Của Thất Bại',
+                description: 'Bạn phân tích kỹ lưỡng sai lầm trong dự án thất bại để chuẩn bị cho lần sau (Kế thừa kinh nghiệm).',
+                slogan: "Phát triển là Vòng xoắn đi lên từ những thất bại cũ. (Phủ định)"
+            },
+            {
+                id: 10, type: 'challenge', points: -1, icon: '🧊',
+                title: 'Trạng Thái Đông Cứng',
+                description: 'Bạn hoang mang không biết bắt đầu từ đâu và không làm gì cả.',
+                slogan: "Mắc kẹt ở Điểm nút mà không có Bước nhảy là lãng phí Lượng. (Lượng - Chất)"
+            },
+            {
+                id: 11, type: 'knowledge', points: 1, icon: '🎯',
+                title: 'Ưu Tiên Tuyệt Đối',
+                description: 'Bạn hủy cuộc đi chơi để hoàn thành mục tiêu học tập (Đấu tranh với ngoại cảnh).',
+                slogan: "Đấu tranh với ngoại cảnh để bảo vệ mâu thuẫn Chủ yếu. (Mâu thuẫn)"
+            },
+            {
+                id: 12, type: 'bonus', points: 5, icon: '🌟',
+                title: 'Cơ Hội Biến Hình',
+                description: 'Bạn nhận được một lời mời tham gia dự án lớn, vượt quá năng lực hiện tại.',
+                slogan: "Đây là Cơ hội Bước nhảy! Tự tin nắm bắt! (Lượng - Chất)"
+            }
+        ];
+
+        let gameScore = 0;
+        let revealedTiles = [];
+        const requiredScore = 12; // Điểm cần đạt để hoàn thành
+
+        function initializeGame() {
+            const board = document.getElementById('game-board');
+            board.innerHTML = ''; // Clear board
+
+            // Tạo 12 ô chơi
+            gameData.forEach(data => {
+                const tile = document.createElement('div');
+                tile.className = 'game-tile card p-3 h-28 flex flex-col justify-center items-center text-center cursor-pointer transition duration-300 bg-white text-gray-800 hover:bg-gray-100';
+
+                // Hiển thị Tiêu đề và Icon trên mặt ô chưa chọn
+                tile.innerHTML = `
+            <div class="text-3xl">${data.icon}</div>
+            <div class="text-sm font-semibold mt-1">${data.title}</div>
+        `;
+
+                tile.onclick = () => applyTileEffect(tile, data);
+                board.appendChild(tile);
+            });
+            updateGameScore(); // Chỉ cập nhật score counter và trạng thái ban đầu
+        }
+
+        function applyTileEffect(element, data) {
+            if (revealedTiles.includes(data.id)) {
+                document.getElementById('game-message').innerHTML = '<span class="text-xl" style="color: #fca5a5;">Ô này đã được chọn rồi. Hãy chọn ô khác!</span>';
+                return;
+            }
+
+            revealedTiles.push(data.id);
+            gameScore += data.points; // Tính điểm trước
+
+            const messageDiv = document.getElementById('game-message');
+
+            // Xóa hết các class cũ và thêm class theo type mới
+            element.classList.remove('revealed', 'penalty', 'bonus');
+            element.classList.add('revealed');
+
+            let pointColor = data.points > 0 ? '#34d399' : '#fca5a5';
+
+            // Thêm class màu sắc cho ô đã chọn
+            if (data.points < 0) {
+                element.classList.add('penalty');
+                element.style.backgroundColor = '#6b21a8'; // Màu Tím Đậm (Penalty)
+                element.style.borderColor = '#9333ea';
+            } else if (data.points >= 3) {
+                element.classList.add('bonus');
+                element.style.backgroundColor = '#10b981'; // Màu Xanh Lá Đậm (Bonus)
+                element.style.borderColor = '#059669';
+            } else {
+                element.style.backgroundColor = '#3b82f6'; // Màu Xanh Dương (Knowledge/Positive)
+                element.style.borderColor = '#2563eb';
+            }
+
+            // HIỂN THỊ NỘI DUNG CHI TIẾT + CẬP NHẬT TRẠNG THÁI NGAY TRONG HÀM NÀY
+            let statusMessage;
+            if (gameScore >= requiredScore) {
+                statusMessage = '<span style="color: #34d399;">🎉 Chúc mừng! Bạn đã hoàn thành vòng xoắn phát triển và làm chủ tư duy Biện chứng!</span>';
+            } else if (gameScore < 0) {
+                statusMessage = '<span style="color: #fca5a5;">💪 Đừng bỏ cuộc! Tiếp tục học hỏi, Tư duy Biện chứng cần sự rèn luyện!</span>';
+            } else {
+                statusMessage = `<span style="color: #fcd34d;">Tiếp tục! Còn ${requiredScore - gameScore} điểm nữa để đạt cột mốc!</span>`;
+            }
+
+            messageDiv.innerHTML = `
+        <div class="flex items-center justify-center mb-2">
+            <span style="font-size: 2rem; margin-right: 12px; color: ${pointColor};">${data.icon}</span>
+            <h3 class="text-2xl font-extrabold text-white">${data.title}</h3>
+        </div>
+        
+        <div class="text-xl mb-3 font-semibold text-gray-200 p-3 rounded-lg bg-gray-700/50">
+            <strong>Tình huống:</strong> ${data.description}
+        </div>
+        
+        <div class="text-base font-italic text-yellow-300 border-t pt-2 mt-2 border-gray-600">
+            <strong>💡 Bài học Triết học:</strong> ${data.slogan || 'Không có giải thích triết học.'}
+        </div>
+        
+        <div class="mt-2 font-bold text-xl mb-4" style="color: ${pointColor};">
+            ${data.points > 0 ? '✅ THÀNH CÔNG: +' : '❌ RỦI RO: '}${data.points} điểm
+        </div>
+
+        <div class="text-center pt-2 border-t border-gray-600">
+            ${statusMessage}
+        </div>
+    `;
+
+            updateGameScore(); // Chỉ cập nhật score counter
+        }
+
+        function updateGameScore() {
+            // Chỉ cập nhật điểm số hiển thị
+            const scoreElement = document.getElementById('game-score');
+            if (scoreElement) {
+                scoreElement.textContent = gameScore;
+            }
+        }
+
+        function resetGame() {
+            gameScore = 0;
+            revealedTiles = [];
+            updateGameScore();
+            initializeGame();
+            document.getElementById('game-message').innerHTML = '<p class="text-lg font-semibold text-white">Chọn một ô để bắt đầu hành trình!</p>';
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeGame();
+        });
+    </script>
+</body>
+
+</html>
